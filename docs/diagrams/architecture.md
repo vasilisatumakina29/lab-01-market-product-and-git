@@ -5,7 +5,10 @@
 - Wildberries (Russian: Уайлдберрис, Uayldberris) is the largest Russian online retailer. It was founded in 2004 by Tatyana Kim.
 
 ## Main components
+
 ![Wildberries Component Diagram](diagrams/out/wildberries/architecture-component/Component%20Diagram.svg)
+
+[Wildberries Component Diagram](https://github.com/vasilisatumakina29/lab-01-market-product-and-git/blob/architecture_description/docs/diagrams/src/wildberries/architecture-component.puml)
 
 - **Customer Mobile App**: The app people use on their phones to shop—browse items, add to cart, and place orders. It talks to Wildberries’ servers through the internet.
 
@@ -18,13 +21,36 @@
 - **Event Bus (Kafka)**: A messaging system that lets different parts of the platform talk to each other *without waiting*—for example, when an order is placed, it quietly tells the notification service “send a confirmation SMS” in the background.
 
 ## Data Flow
-![Wildberries Sequence Diagram](Lab_01\lab-01-market-product-and-git\docs\diagrams\src\wildberries\architecture-deployment.puml)
 
-After the user completes payment in the bank's page, the bank sends a success webhook the Order Management Service (OMS). OMS processes the callback, updates the order status to **PAID**, commits the stock reservation via Kafka, and acknowledges the payment gateway — all without blocking warehouse operations.
+image
+ 
+[Wildberries Sequence Diagram](https://github.com/vasilisatumakina29/lab-01-market-product-and-git/blob/architecture_description/docs/diagrams/src/wildberries/architecture-sequence.pumll)
+
+I picked the group called **“Warehouse Fulfillment (Async)”**.
+
+After the order is paid, the warehouse gets to work. It finds the item, packs it, and marks the order as ready to ship — all in the background while the customer waits.
+
+Who talks to whom and what they send:
+- The system tells the **warehouse** that an order is paid and ready.
+- The **warehouse** checks its database, packs the item, and updates the order status.
+- Then it sends a message like *“Your order is packed!”* back to the **customer’s app**.
 
 
 ## Deployment
+[Wildberries Diployment Diagram](https://github.com/vasilisatumakina29/lab-01-market-product-and-git/blob/architecture_description/docs/diagrams/src/wildberries/architecture-deployment.puml)
 
+- **Apps** (like the WB mobile app) run on users’ phones or computers.  
+- **All Wildberries services** (gateways, order system, payment, etc.) run in their main data center, inside containers (Kubernetes).  
+- **Databases** (for orders, search, files, etc.) are also in that same data center, but in separate, secure clusters.  
+- **Kafka** (for sending messages between services) runs in the same data center too.  
+- **External partners** (banks, delivery companies, SMS services) are outside — Wildberries just sends them requests over the internet.
 
 ## Assumption
 
+- **Wildberries**: *I assume the Event Bus is used for all async operations, so the system stays fast and does not wait for slow steps.*  
+- **Wildberries**: *I assume cache stores user sessions and cart data close to the gateway, so frequent actions are super fast.*
+
+## Open Questions
+
+- **Wildberries**: *How are failed payments retried or canceled — automatically, or does a human need to step in?*  
+- **Wildberries**: *What happens if the warehouse runs out of stock *after*. 
