@@ -1,7 +1,7 @@
 ## Product Choice
 
 - Wildberries
-- [website](https://www.wildberries.ru/)
+- [Link](https://www.wildberries.ru/)
 - Wildberries (Russian: Уайлдберрис, Uayldberris) is the largest Russian online retailer. It was founded in 2004 by Tatyana Kim.
 
 ## Main components
@@ -22,7 +22,7 @@
 
 ## Data Flow
 
-image
+![WildBerries Sequence Diagram](diagrams\out\wildberries\architecture-sequence\Sequence%20Diagram.svg)
  
 [Wildberries Sequence Diagram](https://github.com/vasilisatumakina29/lab-01-market-product-and-git/blob/architecture_description/docs/diagrams/src/wildberries/architecture-sequence.pumll)
 
@@ -37,6 +37,9 @@ Who talks to whom and what they send:
 
 
 ## Deployment
+
+![WildBerries Deployment Diagram](diagrams\out\wildberries\architecture-deployment\Deployment%20Diagram.svg)
+
 [Wildberries Diployment Diagram](https://github.com/vasilisatumakina29/lab-01-market-product-and-git/blob/architecture_description/docs/diagrams/src/wildberries/architecture-deployment.puml)
 
 - **Apps** (like the WB mobile app) run on users’ phones or computers.  
@@ -47,10 +50,10 @@ Who talks to whom and what they send:
 
 ## Assumption
 
-- **Wildberries**: *I assume the Event Bus is used for all async operations, so the system stays fast and does not wait for slow steps.*  
-- **Wildberries**: *I assume cache stores user sessions and cart data close to the gateway, so frequent actions are super fast.*
+- *I assume the Event Bus is used for all async operations, so the system stays fast and does not wait for slow steps.*  
+- *I assume cache stores user sessions and cart data close to the gateway, so frequent actions are super fast.*
 
 ## Open Questions
 
-- **Wildberries**: *How are failed payments retried or canceled — automatically, or does a human need to step in?*  
-- **Wildberries**: *What happens if the warehouse runs out of stock *after*. 
+- How are failed payments retried or canceled — automatically, or does a human need to step in?
+- What happens if the warehouse runs out of stock after? 
