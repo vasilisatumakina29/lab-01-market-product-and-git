@@ -22,7 +22,7 @@
 
 ## Data Flow
 
-![WildBerries Sequence Diagram](diagrams\out\wildberries\architecture-sequence\Sequence%20Diagram.svg)
+![WildBerries Sequence Diagram](diagrams/out/wildberries/architecture-sequence/Sequence%20Diagram.svg)
  
 [Wildberries Sequence Diagram](https://github.com/vasilisatumakina29/lab-01-market-product-and-git/blob/architecture_description/docs/diagrams/src/wildberries/architecture-sequence.pumll)
 
@@ -38,7 +38,7 @@ Who talks to whom and what they send:
 
 ## Deployment
 
-![WildBerries Deployment Diagram](diagrams\out\wildberries\architecture-deployment\Deployment%20Diagram.svg)
+![WildBerries Deployment Diagram](diagrams/out/wildberries/architecture-deployment/Deployment%20Diagram.svg)
 
 [Wildberries Diployment Diagram](https://github.com/vasilisatumakina29/lab-01-market-product-and-git/blob/architecture_description/docs/diagrams/src/wildberries/architecture-deployment.puml)
 
