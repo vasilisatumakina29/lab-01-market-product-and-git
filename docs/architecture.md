@@ -20,7 +20,7 @@
 
 - **Event Bus (Kafka)**: A messaging system that lets different parts of the platform talk to each other *without waiting*—for example, when an order is placed, it quietly tells the notification service “send a confirmation SMS” in the background.
 
-## Data Flow
+## Data flow
 
 ![WildBerries Sequence Diagram](diagrams/out/wildberries/architecture-sequence/Sequence%20Diagram.svg)
  
@@ -48,12 +48,12 @@ Who talks to whom and what they send:
 - **Kafka** (for sending messages between services) runs in the same data center too.  
 - **External partners** (banks, delivery companies, SMS services) are outside — Wildberries just sends them requests over the internet.
 
-## Assumption
+## Assumptions
 
 - *I assume the Event Bus is used for all async operations, so the system stays fast and does not wait for slow steps.*  
 - *I assume cache stores user sessions and cart data close to the gateway, so frequent actions are super fast.*
 
-## Open Questions
+## Open questions
 
 - How are failed payments retried or canceled — automatically, or does a human need to step in?
 - What happens if the warehouse runs out of stock after? 
