@@ -8,7 +8,7 @@
 
 ![Wildberries Component Diagram](diagrams/out/wildberries/architecture-component/Component%20Diagram.svg)
 
-[Wildberries Component Diagram](https://github.com/vasilisatumakina29/lab-01-market-product-and-git/blob/architecture_description/docs/diagrams/src/wildberries/architecture-component.puml)
+[Wildberries Component Diagram](docs/diagrams/src.wildberries/architecture-component.puml)
 
 - **Customer Mobile App**: The app people use on their phones to shop—browse items, add to cart, and place orders. It talks to Wildberries’ servers through the internet.
 
@@ -24,7 +24,7 @@
 
 ![WildBerries Sequence Diagram](diagrams/out/wildberries/architecture-sequence/Sequence%20Diagram.svg)
  
-[Wildberries Sequence Diagram](https://github.com/vasilisatumakina29/lab-01-market-product-and-git/blob/architecture_description/docs/diagrams/src/wildberries/architecture-sequence.pumll)
+[Wildberries Sequence Diagram](docs/diagrams/src/wildberries/architecture-sequence.puml)
 
 I picked the group called **“Warehouse Fulfillment (Async)”**.
 
@@ -40,7 +40,7 @@ Who talks to whom and what they send:
 
 ![WildBerries Deployment Diagram](diagrams/out/wildberries/architecture-deployment/Deployment%20Diagram.svg)
 
-[Wildberries Diployment Diagram](https://github.com/vasilisatumakina29/lab-01-market-product-and-git/blob/architecture_description/docs/diagrams/src/wildberries/architecture-deployment.puml)
+[Wildberries Diployment Diagram](docs/diagrams/src/wildberries/architecture-deployment.puml)
 
 - **Apps** (like the WB mobile app) run on users’ phones or computers.  
 - **All Wildberries services** (gateways, order system, payment, etc.) run in their main data center, inside containers (Kubernetes).  
